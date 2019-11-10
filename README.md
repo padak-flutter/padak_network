@@ -1,9 +1,17 @@
 # padak_starter
 
-파닥파닥 Flutter 서적 내 토이 프로젝트 기본 틀입니다.
+파닥파닥 Flutter 서적 내 토이 프로젝트 **2. 통신** 단원 starter 틀입니다.
 
-## 댓글 작성 화면 구축까지 완료한 코드입니다. 참고하실 코드는 아래와 같습니다.
-1. [comment_page.dart](https://github.com/padak-flutter/padak_starter/blob/1_ui_comment/lib/comment_page.dart)
-2. [detail_page.dart](https://github.com/padak-flutter/padak_starter/blob/1_ui_comment/lib/detail_page.dart)
-    
-이 branch는 **화면 구축 단원**을 끝마치면 얻을 수 있는 코드입니다.
+## Getting Started
+
+This project is a starting point for a Flutter application.
+
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+
+For help getting started with Flutter, view our 
+[online documentation](https://flutter.dev/docs), which offers tutorials, 
+samples, guidance on mobile development, and a full API reference.
+# padak_starter
