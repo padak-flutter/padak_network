@@ -5,6 +5,7 @@ import 'comment_page.dart';
 import 'model/data/dummys_repository.dart';
 import 'model/response/comments_response.dart';
 import 'model/response/movie_response.dart';
+import 'model/widget/star_rating_bar.dart';
 
 class DetailPage extends StatefulWidget {
   final String movieId;
@@ -328,7 +329,12 @@ class _DetailState extends State<DetailPage> {
                 children: <Widget>[
                   Text(comment.writer),
                   // 추후 custom StarRatingBar Widget 적용
-                  SizedBox(width: 5)
+                  SizedBox(width: 5),
+                  StarRatingBar(
+                    rating: comment.rating.toInt(),
+                    isUserInteractionEnabled: false,
+                    size: 20,
+                  ),
                 ],
               ),
               Text(_convertTimeStampToDataTime(comment.timestamp)),
