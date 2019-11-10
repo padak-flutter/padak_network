@@ -6,4 +6,4 @@
 1. [comment_page.dart](https://github.com/padak-flutter/padak_starter/blob/1_ui_comment/lib/comment_page.dart)
 2. [detail_page.dart](https://github.com/padak-flutter/padak_starter/blob/1_ui_comment/lib/detail_page.dart)
     
-## 이 branch는 화면 구축 단원을 끝마치면 얻을 수 있는 코드입니다.
+이 branch는 **화면 구축 단원**을 끝마치면 얻을 수 있는 코드입니다.
