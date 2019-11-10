@@ -314,7 +314,7 @@ class _DetailState extends State<DetailPage> {
                   Text(comment.writer),
                   SizedBox(width: 5),
                   StarRatingBar(
-                    rating: comment.rating.toInt(),
+                    rating: comment.rating,
                     isUserInteractionEnabled: false,
                     size: 20,
                   ),
