@@ -26,7 +26,6 @@ class CommentPageState extends State<CommentPage> {
     this.movieId = movieId;
   }
 
-  // 3-1. 댓글 입력 화면 (화면 구현)
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,7 +62,6 @@ class CommentPageState extends State<CommentPage> {
 
 
   Widget _buildSubmitButton(){
-    // 3-2. 댓글 입력 화면 (_buildSubmitButton)
     final sendIcon = Icon(
       Icons.send,
       color: Colors.white,
@@ -83,7 +81,6 @@ class CommentPageState extends State<CommentPage> {
   }
 
   Widget _buildMovieTitle(){
-    // 3-3. 댓글 입력 화면 (_buildMovieTitle)
     return Container(
       padding: EdgeInsets.all(10),
       child: Text(
@@ -94,7 +91,6 @@ class CommentPageState extends State<CommentPage> {
   }
 
   Widget _buildUserRating(){
-    // 3-4. 댓글 입력 화면 (_buildUserRating)
     return Column(
       children: <Widget>[
         StarRatingBar(
@@ -110,7 +106,6 @@ class CommentPageState extends State<CommentPage> {
   }
 
   Widget _buildHorizontalDivider(){
-    // 3-5. 댓글 입력 화면 (_buildHorizontalDivider)
     return Container(
       margin: EdgeInsets.symmetric(vertical: 14, horizontal: 4),
       width: double.infinity,
@@ -120,7 +115,6 @@ class CommentPageState extends State<CommentPage> {
   }
 
   Widget _buildNickNameInputForm(){
-    // 3-6. 댓글 입력 화면 (_buildNickNameInputForm)
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 10),
       child: TextField(
@@ -140,7 +134,6 @@ class CommentPageState extends State<CommentPage> {
   }
 
   Widget _buildCommentInputForm(){
-    // 3-7. 댓글 입력 화면 (_buildCommentInputForm)
     return Container(
       margin: EdgeInsets.only(left: 10, right: 10, top: 20, bottom: 10),
       child: TextField(

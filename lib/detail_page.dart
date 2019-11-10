@@ -30,23 +30,18 @@ class _DetailState extends State<DetailPage> {
 
   @override
   Widget build(BuildContext context) {
-    // 2-1. 상세 화면 (테스트 데이터 설정 - 영화 상세)
     _movieResponse = DummysRepository.loadDummyMovie(movieId);
 
-    // 2-5. 상세 화면 (테스트 데이터 설정 - 댓글 상세)
     _commentsResponse = DummysRepository.loadComments(movieId);
 
     return Scaffold(
         appBar: AppBar(
-          // 2-1. 상세 화면 (제목 설정)
           title: Text(_movieResponse.title),
         ),
-        // 2-1. 상세 화면 (전체 화면 세팅1)
         body: _buildContents()
     );
   }
 
-  // 2-1. 상세 화면 (전체 화면 세팅2)
   Widget _buildContents() {
     return SingleChildScrollView(
       padding: EdgeInsets.all(8),
@@ -63,7 +58,6 @@ class _DetailState extends State<DetailPage> {
 
 
   Widget _buildMovieSummary() {
-    // 2-2. Summary 화면 (화면 구현)
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -89,7 +83,6 @@ class _DetailState extends State<DetailPage> {
     );
   }
 
-  // 2-2. Summary 화면 (1-2 과정)
   Widget _buildMovieSummaryTextColumn() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -110,7 +103,6 @@ class _DetailState extends State<DetailPage> {
     );
   }
 
-  // 2-2. Summary 화면 (2-2 과정 - 예매율)
   Widget _buildReservationRate() {
     return Column(
       children: <Widget>[
@@ -133,7 +125,6 @@ class _DetailState extends State<DetailPage> {
     );
   }
 
-  // 2-2. Summary 화면 (2-2 과정 - 평점)
   Widget _buildUserRating() {
     return Column(
       children: <Widget>[
@@ -150,7 +141,6 @@ class _DetailState extends State<DetailPage> {
     );
   }
 
-  // 2-2. Summary 화면 (2-2 과정 - 누적관객수)
   Widget _buildAudience() {
     final numberFormatter = NumberFormat.decimalPattern();
     return Column(
@@ -168,7 +158,6 @@ class _DetailState extends State<DetailPage> {
     );
   }
 
-  // 2-2. Summary 화면 (2-2 과정 - 구분선)
   Widget _buildVerticalDivider() {
     return Container(
       width: 1,
@@ -178,7 +167,6 @@ class _DetailState extends State<DetailPage> {
   }
 
   Widget _buildMovieSynopsis() {
-    // 2-3. Synopsis 화면 (화면 구현)
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -207,7 +195,6 @@ class _DetailState extends State<DetailPage> {
   }
 
   Widget _buildMovieCast() {
-    // 2-4. MovieCast 화면 (감독 / 출연 구현)
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -261,7 +248,6 @@ class _DetailState extends State<DetailPage> {
     );
   }
   Widget _buildComment() {
-    // 2-5. Comment 화면 (화면 구현)
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -296,7 +282,6 @@ class _DetailState extends State<DetailPage> {
     );
   }
 
-  // 2-5. Comment 화면 (한줄평 리스트)
   Widget _buildCommentListView() {
     return ListView.builder(
       shrinkWrap: true,
@@ -308,7 +293,6 @@ class _DetailState extends State<DetailPage> {
     );
   }
 
-  // 2-5. Comment 화면 (한줄평 아이템 화면 구축)
   Widget _buildItem({@required Comment comment}) {
     return Container(
       margin: EdgeInsets.all(10),
@@ -328,7 +312,6 @@ class _DetailState extends State<DetailPage> {
               Row(
                 children: <Widget>[
                   Text(comment.writer),
-                  // 추후 custom StarRatingBar Widget 적용
                   SizedBox(width: 5),
                   StarRatingBar(
                     rating: comment.rating.toInt(),
@@ -347,13 +330,11 @@ class _DetailState extends State<DetailPage> {
     );
   }
 
-  // 2-5. Comment 화면 (포맷에 맞춰 날짜 데이터 반환)
   String _convertTimeStampToDataTime(int timestamp) {
     final dateFormatter = DateFormat('yyyy-MM-dd HH:mm:ss');
     return dateFormatter.format(DateTime.fromMillisecondsSinceEpoch(timestamp * 1000));
   }
 
-  // 2-5. Comment 화면 (댓글 입력 창으로 이동)
   void _presentCommentPage(BuildContext context) {
     Navigator.of(context).push(MaterialPageRoute(
       builder: (context) => CommentPage(

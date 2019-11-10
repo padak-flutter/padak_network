@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-// 1-3. 리스트 화면 (임포트)
 import 'detail_page.dart';
 import 'model/data/dummys_repository.dart';
 import 'model/response/movies_response.dart';
@@ -8,18 +7,12 @@ import 'model/response/movies_response.dart';
 class ListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // 1-3. 리스트 화면 (동적 데이터 추가)
     final List<Movie> movies = DummysRepository.loadDummyMovies();
 
-    // 1-3. 리스트 화면 (초기 리스트 구현)
     return ListView.separated(
       separatorBuilder: (_, index) => Divider(color: Colors.grey),
-      // 1-3. 리스트 화면 (동적 데이터 호출2)
       itemCount: movies.length,
       itemBuilder: (context, index) {
-        // 1-3. 리스트 화면 (동적 데이터 호출3)
-        // return _buildItem(movies[index]);
-        // 1-5. 상세화면 연결 (InkWell 사용)
         return InkWell(
           child: _buildItem(movies[index]),
           onTap: () {
@@ -35,9 +28,7 @@ class ListPage extends StatelessWidget {
     );
   }
 
-// 1-3. 리스트 화면 (고정 더미 데이터)
   Widget _buildDummyItem() {
-    // 빨간 음영처리 된 위의 Container Widget 하나를 여기로 옮깁니다.
     return Container(
       padding: EdgeInsets.all(12.0),
       child: Row(
@@ -62,7 +53,6 @@ class ListPage extends StatelessWidget {
                       ),
                     ),
                     SizedBox(width: 8),
-                    // 1-3. 리스트 화면 (UI 변경 제안 대처)
                     _buildGradeImage(12),
                   ],
                 ),
@@ -84,10 +74,8 @@ class ListPage extends StatelessWidget {
         ],
       ),
     );
-    // ListView 내의 나머지 Container Widget은 지워줍니다.
   }
 
-  // 1-3. 리스트 화면 (동적 데이터 호출1)
   Widget _buildItem(Movie movie) {
     return Container(
       padding: EdgeInsets.all(12.0),
@@ -136,7 +124,6 @@ class ListPage extends StatelessWidget {
     );
   }
 
-  // 1-3. 리스트 화면 (관람 등급 이미지 버튼 함수 생성)
   Widget _buildGradeImage(int grade) {
     switch (grade) {
       case 0:
