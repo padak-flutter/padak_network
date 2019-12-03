@@ -5,7 +5,12 @@ import 'model/data/dummys_repository.dart';
 import 'model/response/movies_response.dart';
 
 class GridPage extends StatelessWidget {
-  final List<Movie> movies = DummysRepository.loadDummyMovies();
+  // 2-2. 메인화면 - 그리드 화면 주석처리
+  // final List<Movie> movies = DummysRepository.loadDummyMovies();
+
+  // 2-2. 메인화면 - 그리드 화면 변수 선언 및 생성자 parameter 로직 반영
+  final List<Movie> movies;
+  GridPage(this.movies);
 
   @override
   Widget build(BuildContext context) {

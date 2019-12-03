@@ -5,9 +5,14 @@ import 'model/data/dummys_repository.dart';
 import 'model/response/movies_response.dart';
 
 class ListPage extends StatelessWidget {
+  // 2-2. 메인화면 - 변수 선언 및 생성자 parameter 로직 반영
+  final List<Movie> movies;
+  ListPage(this.movies);
+
   @override
   Widget build(BuildContext context) {
-    final List<Movie> movies = DummysRepository.loadDummyMovies();
+    // 2-2. 메인화면 - 리스트 화면 주석처리
+    // final List<Movie> movies = DummysRepository.loadDummyMovies();
 
     return ListView.separated(
       separatorBuilder: (_, index) => Divider(color: Colors.grey),
