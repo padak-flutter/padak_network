@@ -1,6 +1,12 @@
+import 'dart:convert';
+
 import "package:flutter/material.dart";
 
+import 'model/response/comments_response.dart';
 import 'model/widget/star_rating_bar.dart';
+
+// 4-1. 한줄평 입력 - 라이브러리 임포트
+import 'package:http/http.dart' as http;
 
 class CommentPage extends StatefulWidget {
   final String movieTitle;
@@ -74,10 +80,33 @@ class CommentPageState extends State<CommentPage> {
         if (_writer.isEmpty || _contents.isEmpty) {
           _showSnackBar('모든 정보를 입력해주세요.');
         } else {
-          Navigator.of(context).pop(true);
+          // 4-1. 한줄평 입력 - 서버 통신 로직 진행
+          _postComment();
         }
       },
     );
+  }
+
+  // 4-1. 한줄평 입력 - Post 요청 코드 작성
+  void _postComment() async {
+    // (DateTime.now().millisecondsSinceEpoch.toDouble() / 1000).toInt() 와 같은 말입니다.
+    final currentTime = DateTime.now().millisecondsSinceEpoch.toDouble() ~/ 1000;
+    final commentRequest = Comment(
+      rating: _rating,
+      movieId: widget.movieId,
+      timestamp: currentTime,
+      contents: _contents,
+      writer: _writer,
+    );
+    final response = await http.post(
+        'http://52.79.87.95:3003/comment',
+        headers: {"Content-Type": "application/json"},
+        body: json.encode(commentRequest.toMap()));
+    if (response.statusCode == 200) {
+      Navigator.of(context).pop(true);
+    } else {
+      _showSnackBar('잠시 후 다시 시도해주세요.');
+    }
   }
 
   Widget _buildMovieTitle(){
